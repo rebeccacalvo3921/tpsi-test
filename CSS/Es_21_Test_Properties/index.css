@@ -1,0 +1,51 @@
+h1{
+    text-align: center;
+    border: solid 1px;
+}
+
+p.myclass{
+    color: rgb(90, 90, 90);
+    font-family:Verdana, Geneva, Tahoma, sans-serif; /* se il nome del font continene degli spazi allora bispgna mettere le virgolette*/
+    font-size: 15pt;/* 20pt ;*/ /*tra pt e px c'è un rapporto 4/3, quindi 3 pt equivalgono a 4 px*/
+    line-height: 24pt;
+    word-spacing: 3px;
+    letter-spacing: -1px;
+    border: 1px solid black;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: rebeccapurple;
+    border-left-width: 8px;
+    border-left-style: solid;
+
+    width: 600px;
+    height: 300px;
+    overflow: auto;
+
+    background-color: #afa;
+    background-image: url(./img/Penguins.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    margin:20px;
+    margin: 30px 0 0 100px;
+    margin-top: 50px;
+    margin: 40px auto; /* auto fa la centratura orizzontale*/
+
+    text-align: center;
+}
+
+span.grassetto{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+span.grassetto:hover{
+    background-color: rgb(255, 255, 0);
+    cursor: pointer;
+}
+
+span.italico{
+    font-style: italic;
+    text-decoration: underline;
+}

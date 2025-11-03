@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquista</title>
+</head>
+
+<body>
+    <div align="center">
+        <img src="./img/amazon.png" usemap="#image-map">
+
+        <map name="image-map">
+            <area target="" alt="Acquista" title="Acquista" href="./acquista.html" coords="1453,4,1556,45" shape="rect">
+        </map>
+    </div>
+
+    <h1 align="center">Inserisci i dati relativi</h1>
+    <form action="./conferma.html">
+        <table cols="2" rows="5" align="center" >
+            <tr>
+                <td>Luogo di spedizione: </td>
+                <td>
+                    <input type="radio" name="radsped" id="domicilio" value="domicilio" required>
+                    <label for="domicilio">domicilio</label>
+                    <br />
+                    <input type="radio" name="radsped" id="ufficiopost" value="ufficiopostale" required>
+                    <label for="ufficiopost">ufficio postale</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Opzioni aggiuntive: </td>
+                <td>
+                    <input type="checkbox" name="chkopz" id="chkopzass" value="assicurazione">
+                    <label for="chkopz">assicurazione</label>
+                    <br />
+                    <input type="checkbox" name="chkopz" id="chkopzcons" value="consegnaveloce">
+                    <label for="chkopzcons">consegna veloce</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Tipo di pagamento: </td>
+                <td>
+                    <select name="lstpaga" id="lstpaga" required>
+                        <option value="Visa">Visa</option>
+                        <option value="Master">Mastercard</option>
+                        <option value="American">American express</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="txtCommenti">Note: </label></td>
+                <td><textarea name="txtCommenti" id="txtCommenti" cols="30" rows="5"
+                        placeholder="Inserisci eventuali note"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="invia"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

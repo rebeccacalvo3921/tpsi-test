@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es 06</title>
+</head>
+<body>
+    <h1 align="center">Mappa Immagine</h1>
+    <img src="./Penguins.jpg" usemap="#mappa">
+
+    <p> Il tag map può essere posizionato ovunque nella pagina, tipicamente a fondo pagina</p>
+    <p>
+        Attenzione che se si desidera cambiare le dimensioni dell'immagine, il ridimensionamento va fatto sull'immagine reale mediante il visualizzatore di Windows.
+        Poi occorre ripetere la procedura su image-map.
+    </p>
+    <map name="mappa">
+        <area target="_blank" alt="Vai alla pagina di studente 1" title="Vai alla pagina di studente 1" href="./studente1.html" coords="222,121,51" shape="circle">
+        <area target="_blank" alt="Vai alla pagina di studente 2" title="Vai alla pagina di studente 2" href="./studente2.html" coords="476,150,50" shape="circle">
+        <area target="_blank" alt="Vai alla pagina di studente 3" title="Vai alla pagina di studente 3" href="./studente3.html" coords="658,99,48" shape="circle">
+    </map>
+</body>
+</html>

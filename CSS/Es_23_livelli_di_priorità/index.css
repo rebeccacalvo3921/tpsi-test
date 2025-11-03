@@ -1,0 +1,13 @@
+p{
+    padding: 12px;
+    margin: 15px;
+    border: 1px solid #ccc;
+}
+
+p{
+    color:#00f;
+}
+
+p.paragrafo{
+    color:#0a0;
+}
