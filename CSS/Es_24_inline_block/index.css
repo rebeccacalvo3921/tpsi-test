@@ -18,7 +18,7 @@ h1 span{
 
 
 #wrapper label, #wrapper input{
-    display: inline-block;
+    display: inline-block; /*Display inline-block*/
     width: 150px;
     margin: 5px;
 }
