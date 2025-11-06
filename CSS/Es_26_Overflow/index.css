@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("./bg.gif");
+    background-repeat: repeat-y;
+    background-position: center;
+    background-color: #eaeaea; /*Usare eye dropper su google per prendere il colore esatto*/
+}
+
+h1{
+    margin: 30px;
+    text-align: center;
+}
+
+#wrapper{
+    width: 780px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #afa;
+    border: 1px solid #afa;
+}
+
+.container{
+    width: 400px;
+    height: 150px;
+    border: 1px solid #ccc;
+    padding:px;
+    margin: 20px auto;
+    overflow: visible; /* il risultato sarà overflow auto perchè è l'ultimo, se non ci fosse auto allora sarebbe scroll, vince sempre l'ultimo e gli altri vengono mascherati dal successivo.*/
+    overflow: hidden; /* il risultato sarà overflow auto perchè è l'ultimo, se non ci fosse auto allora sarebbe scroll, vince sempre l'ultimo e gli altri vengono mascherati dal successivo.*/
+    overflow: scroll; /* il risultato sarà overflow auto perchè è l'ultimo, se non ci fosse auto allora sarebbe scroll, vince sempre l'ultimo e gli altri vengono mascherati dal successivo.*/
+    overflow: auto; /* il risultato sarà overflow auto perchè è l'ultimo, se non ci fosse auto allora sarebbe scroll, vince sempre l'ultimo e gli altri vengono mascherati dal successivo.*/
+}
