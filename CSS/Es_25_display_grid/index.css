@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+h1{
+    text-align: center;
+    font-weight:normal;
+    padding:20px;
+    padding-bottom: 40px;
+}
+
+h1 span{
+    font-style: italic;
+    font-weight: bold;
+}
+
+#wrapper {
+    display:grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 22px 22px 22px 22px 22px;
+    border: 1px solid #ccc;
+    width: fit-content; /*Si allarga tanto da farci stare dentro il contenuto*/
+    margin: 20px auto;
+    padding: 20px;
+    row-gap: 8px;
+    column-gap: 5px;
+}
+
+#wrapper label{
+    margin-right: 8px;
+    text-align: right;
+}
