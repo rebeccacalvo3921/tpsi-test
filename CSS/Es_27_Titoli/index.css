@@ -48,4 +48,5 @@ p:nth-of-type(3):hover{
 
 p:nth-of-type(4){
     border: 3px dashed #000;
+    overflow: auto;
 }
