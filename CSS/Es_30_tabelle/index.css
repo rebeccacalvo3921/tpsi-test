@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+table {
+    margin: 20px auto;
+    border: 3px solid black;
+    background-color: #ddd;
+    border-collapse: collapse; 
+}
+
+table thead th{
+    border: 1px solid red;
+    background-color: #666;
+    width: 130px;
+    padding: 10px;
+    color: white;
+} 
+
+table tbody tr{
+    /*il bordo del tr funziona soltamnto se nella table c'è border-collapse: collapse;*/
+    border: 1px solid #00f;
+    background-color: #ffa;
+    padding: 10px; /*padding sul tr non ha effetto*/
+}
+
+table tbody td{
+    padding: 10px;
+    border: 1px solid #f00;
+}
+
+/*colorazione delle righe pari*/
+table tbody tr:nth-of-type(even)/* even agisce sulle righe pari, odd invece agisce su quelle dispari*/{
+    background-color: #afa;
+}
+/*la colorazione dei td prevale su quella dei tr*/
+table tbody td:nth-of-type(even){
+    background-color: #ffa;
+}
+
+table tbody td:nth-of-type(odd){
+    background-color: #aff;
+}
+
+table tbody td:hover{
+    background-color: #f88;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+}
