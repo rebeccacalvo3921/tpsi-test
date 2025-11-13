@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #bbb;
+}
+
+#wrapper {
+    overflow: auto;
+    max-width: 720px;
+    margin: 0 auto;
+    /*proprietà ereditate anche dagli elemeti interni*/
+    background-color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    /*estensione bìverticale del wrapper*/
+    height: 100vh;
+    /*bordo per vedere il div*/
+    /*border: 1px solid red;*/
+
+    /*h1 dentro al wrapper equivale a #wrapper h1, solo che lo inseriamo dentro il wrapper direttamente ed è più chiaro*/
+    h1 {
+        margin: 20px;
+        padding: 26px;
+    }
+
+    header {
+        margin: 15px;
+        padding: 26px;
+        background-color: #ffa;
+    }
+
+    nav {
+        margin: 15px;
+        padding: 26px;
+        background-color: #afa;
+    }
+
+    footer {
+        margin: 15px;
+        padding: 26px;
+        background-color: #8bf;
+    }
+
+    header,
+    nav,
+    footer {
+        margin: 15px;
+        padding: 26;
+    }
+
+    section {
+        margin: 15px;
+        background-color: #faf;
+
+        * {
+            margin: 15px;
+        }
+
+        .title {
+            background-color: #ffa;
+            padding: 18px;
+        }
+
+        article {
+            background-color: #acf;
+            height: 150px;
+            width: 62%;
+        }
+
+        aside {
+            background-color: #afa;
+            height: 500px;
+            width: 30%;
+            /*metto aside a destra*/
+            float: right;
+        }
+    }
+
+    /*su ASIDE permangono 2 problemi*/
+    /*1)aside è alto 500px e quindi fupriesce dalla section (la section non sente l'altezza degli elmenti float)*/
+    section{
+        overflow: auto;
+    }
+
+    /* 2) aside non è allineato correttamente in verticale*/
+    
+    aside{
+        margin-top: 0;
+    }
+}
