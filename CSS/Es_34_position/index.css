@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    padding: 40px;
+}
+
+#wrapper{
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.box{
+    width: 120px;
+    height: 120px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    font-size: 24pt;
+    background-color: cornflowerblue;
+}
+
+/*specificità (0 1 0)*/
+.box{
+    position: absolute !important;
+}
+
+.box:nth-of-type(1){
+    position: relative;
+    left: 20px;
+    top: 20px;
+    z-index: 1; /*Per definire il livello rispetto agli altri elemnti*/
+}
+
+/*specificità (0 2 0)*/
+.box:nth-of-type(2){
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+}
+
+.box:nth-of-type(3){
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+p{
+    opacity: 0.7;
+}
