@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    margin: 20px;
+}
+
+#wrapper{
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    background-image: url("./Penguins.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+#wrapper>p{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    padding: 10px;
+    color: #ddd;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+#wrapper:hover p{
+    opacity: 1;
+}
+
+#wrapper p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
