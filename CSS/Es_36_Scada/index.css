@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper{
+    width: 380px;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #eee;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    overflow: auto;
+}
+
+#comandi{
+    float: left;
+    width: 130px;
+}
+
+#wrapper h2{
+    font-style: italic;
+    text-shadow: 1px 1px;
+    margin-bottom: 40px;
+}
+
+#comandi button{
+    width: 100px;
+    height: 40px;
+    background-color: #afa;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 3px 3px #999;
+}
+
+#stati{
+    float: right;
+    width: 180px;
+    background-color: #ffa;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #bbb;
+    margin-top: -16px;
+}
+
+#stati .gemma div:nth-of-type(odd){
+    width: 110px;
+    display: inline-block;
+    line-height: 35px;
+    height: 35px;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+#stati .gemma div:nth-of-type(even){
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #aaa;
+    box-shadow: 3px 3px #111;
+    display: inline-block;
+}
+
+#stati .led{
+    width: 90px;
+    height: 42px;
+    background-color: #111;
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 5px;
+    display: inline-block;
+}
+
+
+#stati .led div{
+    width: 15px;
+    height: 15px;
+    background-color: #aaa;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+#stati .cntCicli{
+    font-size: 20pt;
+    font-weight: bold;
+    float: right;
+    margin-right: 10px;
+    margin-top: 20px;
+}
