@@ -1,0 +1,87 @@
+*{
+    padding: 0px;
+}
+
+body{
+
+    background-color: #689;
+
+    h1{
+        color: #fff;
+        text-align: center;
+        margin-bottom: 44px;
+    }
+
+    #wrapper{
+        width: 350px;
+        padding: 20px 30px;
+        margin: 10px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    .icona{
+        display: inline-block;
+        background-image: url(./icons.png);
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+
+    #wrapper>div{
+        width: 80%;
+        margin: 15px auto;
+        padding: 4px;
+    }
+
+    #wrapper>div:nth-of-type(1)>div{
+        background-position: -144px -96px;
+    }
+
+    #wrapper>div:nth-of-type(2)>div{
+        background-position: -192px -96px;
+    }
+
+
+    #wrapper>div:nth-of-type(3){
+        background-color: #689;
+    }
+
+    #wrapper>div:nth-of-type(3)>div{
+        background-position: -64px -144px;
+    }
+
+    #wrapper>div:nth-of-type(3)>div:nth-of-type(2){
+        background-position: -64px -144px;
+        width: 90%;
+        color: white;
+        vertical-align: middle;
+    }
+
+    #wrapper>div:nth-of-type(3)>div:nth-of-type(2):hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+
+    #wrapper>div{
+        border: 1px solid #689;
+        border-radius: 10px;
+    }
+
+    #wrapper>div>div{
+        display: inline-block;
+    }
+
+    input{
+        border: none;
+        width: 90%;
+        vertical-align: middle;
+    }
+
+    input:focus{
+        outline:none;
+    }
+
+}
