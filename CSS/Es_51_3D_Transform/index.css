@@ -1,0 +1,77 @@
+*{
+	padding:0;
+	margin:0;	
+}
+
+h1{
+	text-align:center;
+	margin:25px;
+}
+
+
+#wrapper{
+	width:300px;
+	margin:60px auto;
+}
+
+/* ****************************************** */
+
+div.box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #555;
+    margin: 5px;
+	margin-bottom:60px;
+    perspective:300px; /*usata per creare gli effetti 3d serve ad allontanare dallo schermo l'oggetto*/
+}
+
+div.box div{
+	/* Il valore di default di height è auto, 
+	   cioè pari all'altezza del contenuto   */
+	height: inherit;
+    color: #FFF;	
+    background-color: #F00;
+	text-align:center;
+	line-height:40px;
+}
+
+
+/* *************************** DIV1 **************************** */
+div.box:nth-of-type(1):hover div{
+    transform:  rotateY(30deg) translateZ(50px);
+}
+
+
+/* *************************** DIV2 **************************** */
+button{
+	width:50px;
+	height:100px;
+	margin:5px;
+	background-color:#ccc;
+	vertical-align:top;
+}
+
+button:hover{
+   cursor:pointer;
+
+}
+
+div.box:nth-of-type(2){
+    display:inline-block;
+	vertical-align:top;
+}
+
+button:nth-of-type(1){ 
+    /* 64(button+bordi+margin) + 112(div+bordi+margin) + 64(button+bordi+margin) */
+	transform:translateX(245px);
+}
+
+button:nth-of-type(2):hover ~ div.box div{  /*tild = ALT + 126 tastierino numerico*/
+	transform: rotateY(-40deg);
+	transform-origin: center right;
+}
+
+button:nth-of-type(1):hover ~ div.box div{  /*tild = ALT + 126 tastierino numerico*/
+	transform: rotateY(40deg);
+	transform-origin: center left;
+}
