@@ -1,0 +1,79 @@
+#container {
+	border:1px solid #ccc;
+}	
+#container div { 
+	width: 5em;  /* 5 volte il font size, cioè 12pt*4/3 * 5 = 80px */ /*em vuol dire che la dimensione è in confronto al font-size, per esempio 5 em vuol dire che la dimansione sarà 5 volte il font-size*/
+	height: 3em; /* 3 volte il font size, cioè 12pt*4/3 * 3 = 48px */ /*em vuol dire che la dimensione è in confronto al font-size, per esempio 3 em vuol dire che la dimansione sarà 3 volte il font-size*/
+	line-height: 3em;  		
+	transition-property: width;        
+	transition-duration: 4s;
+}   		
+#container:hover div {
+	width: 50em;
+}
+
+
+#container div:nth-of-type(1) { 
+	background-color:#ff5c00; 
+	transition-timing-function: ease;
+}     
+#container div:nth-of-type(2) { 
+	background-color: #ff7222; 
+	transition-timing-function: linear; 
+}
+#container div:nth-of-type(3) { 
+	background-color: #ff8744; 
+	transition-timing-function: ease-in;
+}
+#container div:nth-of-type(4) { 
+	background-color: #ff9d66; 
+	transition-timing-function: ease-out;
+}
+#container div:nth-of-type(5) { 
+	background-color: #ffb388; 
+	transition-timing-function: ease-in-out;
+}
+/* PURPLE
+#container div:nth-of-type(1) { 
+	background-color: rebeccapurple; 
+	transition-timing-function: ease;
+}     
+#container div:nth-of-type(2) { 
+	background-color: #7744aa; 
+	transition-timing-function: linear; 
+}
+#container div:nth-of-type(3) { 
+	background-color: #8855bb; 
+	transition-timing-function: ease-in;
+}
+#container div:nth-of-type(4) { 
+	background-color: #9966cc; 
+	transition-timing-function: ease-out;
+}
+#container div:nth-of-type(5) { 
+	background-color: #aa77dd;
+	transition-timing-function: ease-in-out;
+}	
+
+NAVY
+#container div:nth-of-type(1) { 
+	background-color: navy;
+	transition-timing-function: ease;
+}     
+#container div:nth-of-type(2) { 
+	background-color: #111191; 
+	transition-timing-function: linear; 
+}
+#container div:nth-of-type(3) { 
+	background-color: #2222a2; 
+	transition-timing-function: ease-in;
+}
+#container div:nth-of-type(4) { 
+	background-color: #3333b3; 
+	transition-timing-function: ease-out;
+}
+#container div:nth-of-type(5) { 
+	background-color: #4444c4;
+	transition-timing-function: ease-in-out;
+}
+*/
