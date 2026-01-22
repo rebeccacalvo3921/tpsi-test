@@ -1,0 +1,93 @@
+*{
+	padding:0;
+	margin:0;	
+}
+
+h1{
+	text-align:center;
+	margin:25px;
+}
+
+
+/* ********************** pendolo  ********************** */
+
+.wrapper > div:nth-of-type(1){
+	width: 20px;
+	height: 150px;
+	margin: 2px auto;
+	background-color: gainsboro;
+	border-radius: 6px;
+	animation: animazionePendolo 2s linear infinite;
+	transform-origin: center top;
+}
+
+@keyframes animazionePendolo{
+	0%{transform: rotate(0deg);}
+	20%{transform: rotate(20deg);}
+	50%{transform: rotate(0deg);}
+	75%{transform: rotate(-20deg);}
+	100%{transform: rotate(0deg);}
+}
+
+/* ******************* barra avanzamento **************** */
+
+.wrapper > div:nth-of-type(2){
+	width: 300px;
+	height: 15px;
+	margin:  50px auto;
+	border: 1px solid gainsboro;
+}
+
+.wrapper > div:nth-of-type(2) > div{
+	width: 0px;
+	height: inherit;
+	background-color: rebeccapurple;
+	animation: animazioneBarraAvanzamento 2s linear infinite;
+}
+
+@keyframes animazioneBarraAvanzamento{
+	0%{width: 0px;}
+	100%{width: 300px;}
+}
+
+
+/* ******************* palla che rimbalza **************** */
+/*prato*/
+.wrapper > div:nth-of-type(4){
+	height: 10px;
+	background-color: #060;
+	transform: translateY(300px);
+}
+
+.wrapper > div:nth-of-type(3){
+	width: 70px;
+	height: 70px;
+	background-color: #f00;
+	border-radius: 50px;
+	margin: 0 auto;
+	/*1 solo ciclo*/
+	animation: animazionePalla 8s 1;
+	position: relative;
+	animation-fill-mode: forwards;
+}
+
+@keyframes animazionePalla{
+	 0%{top :0px; animation-timing-function: ease-in;background-color: #f00;}
+	10%{top :300px; animation-timing-function: ease-out;background-color: #800;}
+	20%{top :60px; animation-timing-function: ease-in;background-color: #c00;}
+	30%{top :300px; animation-timing-function: ease-out;background-color: #800;}
+	40%{top :120px; animation-timing-function: ease-in;background-color: #b00;}
+	50%{top :300px; animation-timing-function: ease-out;background-color: #800;}
+	60%{top :180px; animation-timing-function: ease-in;background-color: #a00;}
+	70%{top :300px; animation-timing-function: ease-out;background-color: #800;}
+	80%{top :240px; animation-timing-function: ease-in;background-color: #900;}
+	90%{top :300px; animation-timing-function: ease-out;background-color: #800;}
+	95%{top :290px; animation-timing-function: ease-in;background-color: #860000;}
+	96%{top :292.5px; animation-timing-function: ease-out;background-color: #860000;}
+	97%{top :295px; animation-timing-function: ease-in;background-color: #860000;}
+	98%{top :297.5px; animation-timing-function: ease-out;background-color: #860000;}
+	99%{top :299px; animation-timing-function: ease-in;background-color: #860000;}
+	100%{top :300px; animation-timing-function: ease-in;background-color: #800;}
+
+}
+
