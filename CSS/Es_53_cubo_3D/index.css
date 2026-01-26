@@ -69,12 +69,12 @@ h1{
 /* i div .top e .bottom eseguono un rotatex di 90° 
    e poi vengono entrambi allargati di 75px      */
 .cube .top {
-  background-color:antiquewhite;
+  background-color:gainsboro;
   transform: rotateX(90deg) translate3d(0, 0, 75px);
 } 
 .cube .bottom {
-  background-color:darksalmon;
-  transform: rotateX(-90deg) translate3d(0, 0, 75px);
+  background-color: salmon;
+    transform: rotateX(-90deg) translate3d(0, 0, 75px);
 }
 
 
