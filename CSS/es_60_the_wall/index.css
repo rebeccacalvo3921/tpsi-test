@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Helvetica;
+    font-size: 11pt;
+    background-image: url("./img/sfondo.jpg");
+    background-attachment: fixed;
+}
+
+#wrapper{
+    width: 1024px;
+    border: 1px solid blue;
+    margin: 0 auto;
+}
+
+h1{
+    color: blue;
+    font-size: 30pt;
+    text-align: center;
+    margin: 30px auto;
+    text-shadow: 3px 3px 4px #000099;
+}
+
