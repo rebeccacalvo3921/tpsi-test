@@ -1,0 +1,90 @@
+/* import DEVE essere scritto per primo */	
+@import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap');
+
+*{
+	padding:0;
+	margin:0;	
+}
+h1{
+	text-align:center;
+	margin:25px;
+}
+
+
+div{
+	font-size: 14pt;
+	max-width: 900px;
+	margin:10px auto;
+	padding:10px 30px;
+}
+
+
+._sensation{
+	font-family: _Sansation, Arial, sans-serif;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.sensation{
+	font-family: Sansation, Arial, sans-serif;
+}
+
+
+.coral-pixels-regular {
+  font-family: "Coral Pixels", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.big-shoulders-stencil-normal {
+  font-family: "Big Shoulders Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.big-shoulders-stencil-bold {	
+  font-family: "Big Shoulders Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+
+
+
+/* richiamo 2 volte lo stesso font, dandogli 2 nomi diversi */
+@font-face {
+	font-family: _Sansation;   /* nome da assegnare al font */
+	src: local(Sansation),    /* nome del font eventualmente gi� installato */
+		 url(./font/Sansation_Regular.ttf)  format('truetype'),
+		 url(./font/Sansation_Regular.svg)  format('svg'),
+	 	 url(./font/Sansation_Regular.woff) format('woff'); 
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Sansation;   /* nome da assegnare al font */
+	src: local(Sansation),    /* nome del font eventualmente gi� installato */
+		 url(./font/Sansation_Regular.ttf)  format('truetype'),
+		 url(./font/Sansation_Regular.svg)  format('svg'),
+	 	 url(./font/Sansation_Regular.woff) format('woff'); 
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Sansation;
+	src: local(Sansation),    
+		 url(font/Sansation_Bold.ttf) format('truetype'), 
+		 url(font/Sansation_Bold.svg) format('svg'),
+		 url(font/Sansation_Bold.woff) format('woff');
+	font-weight: bold;
+	font-style:normal;
+}
+
+
+

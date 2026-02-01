@@ -42,16 +42,46 @@
 			<div id=progressBar> Registrati al nostro sito :  </div> 
 			
             <form id="form1">
-			<fieldset>
-                  <!-- inserire qui i controlli -->
+			<fieldset >
+				<legend> Compila la seguente scheda</legend>	
+				
+				<label for="txtNome">Nome:</label>
+				<input type="text" name="txtNome" id="txtNome"  placeholder="inserire nome">
+				<br>
+				<label for="txtCognome">Cognome:</label>
+				<input type="text" name="txtCognome" id="txtCognome"  placeholder="inserire cognome">
+				<br>
+				<label for="txtDate"> Data di Nascita: </label>
+				<input type="date"  name="txtDate" id="txtDate" required> 
+				<br>
+				<label for="txtClasse">Classe</label>
+        		<input type="number" name="txtClasse" id="txtClasse" min="1" max="5">
+				<br>
+				<label for="txtSettore"> Settore: </label>
+				<input type="text"  name="txtSettore" id="txtSettore" list="listaSettore">
+				<datalist id="listaSettore">
+					<option>Meccanica</option>
+					<option>Informatica</option>
+					<option>Elettrotecnica</option>
+				</datalist>
+				<br>
+				<label for="txtConoscenze"> Km da Fossano </label>
+				<div class="control">
+					<span>1</span>
+					<input type="range" name="txtConoscenze" id="txtConoscenze"
+						min="1" max="50" step="1" >
+					<span>50</span>
+				</div>	
+				<br>
+            <input type="submit" value="invia">
 			</fieldset> 
             </form>			
 		</section>  
 		
 		<ul id="socialNetworks">
-			<li class="twitter"> <a href="#"> </a></li>
-			<li class="facebook"><a href="#"> </a></li>
-			<li class="linkedin"><a href="#"> </a></li>
+			<li class="twitter">  <a href="#"> </a></li>
+			<li class="facebook"> <a href="#"> </a></li>
+			<li class="linkedin"> <a href="#"> </a></li>
 		</ul>	
 		
     </aside> 

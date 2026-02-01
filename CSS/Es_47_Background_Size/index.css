@@ -1,0 +1,59 @@
+*{
+	padding:0;
+	margin:0;	
+}
+
+h1{
+	text-align:center;
+	margin:25px;
+}
+
+
+div, img {
+	padding:15px 20px;   /* manteniamo il rapporto 4:3 */
+	margin:5px 0 30px 40px;;
+    border:1px solid black;
+    background-color: #CCC;	
+}
+
+span{ margin-left:40px;}
+
+/* ************************************************************************** */
+img{
+	width:360px;
+	/* senza height l'immagine viene addata e visualizzata completamente */
+	/* NOTARE COME L'IMMAGINE NON SI ESTENDA SUL PADDING  */
+	/* mentre nel caso di DIV ricopre anche il padding  */
+}
+
+div {     /* nth-of-type(1) */
+    width: 360px;
+	height: 160px;
+	/* L'immagine è 1024 768 : si vede solo la porzione in alto a sx */
+    background-image: url(img/tulips.jpg);  
+    background-Repeat:no-repeat;
+	background-position:center;
+	/* settando center viene visualizzata la porzione centrale       */
+}
+
+div:nth-of-type(2){
+	/* immagine completamente visualizzata. Copre anche il padding */
+	background-size:contain;
+} 
+
+div:nth-of-type(3){
+	/* immagine tagliata in modo da riempire tutta l'area (padding compreso) */
+	background-size:cover;
+}   
+
+div:nth-of-type(4) {
+	background-size:80%;    /* imposta la larghezza          */
+	/* equivale a background-size:320px;                     */
+	/* infatti il box è 360+20+20=400 - 80% di 400px = 320px */
+	margin-bottom:60px;
+} 
+
+div:nth-of-type(5){
+	background-size:cover;
+	box-sizing:border-box;
+}   

@@ -1,26 +1,172 @@
 *{
-    margin: 0;
-    padding: 0;
+    padding:0px;
+    margin:0px;
 }
 
 body{
-    font-family: Verdana, Helvetica;
+    font-family: verdana, helvetica, sans-serif;
     font-size: 11pt;
-    background-image: url("./img/sfondo.jpg");
+    background-image: url(./img/sfondo.jpg);
     background-attachment: fixed;
 }
 
 #wrapper{
     width: 1024px;
+    margin: 0px auto;
     border: 1px solid blue;
-    margin: 0 auto;
 }
 
 h1{
-    color: blue;
     font-size: 30pt;
+    color:blue;
     text-align: center;
-    margin: 30px auto;
-    text-shadow: 3px 3px 4px #000099;
+    text-shadow: 3px 3px 4px #009;
 }
+
+nav{
+    width: 960px;
+    margin: 30px auto;
+    padding: 15px;
+    background-color: rgba(40, 40, 40, 0.5);
+    border-radius: 12px;
+    box-shadow: 3px 3px 4px black;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav>h3{
+    color:#00dddd;
+}
+nav>ul{
+    border:1px solid blue;
+    width: fit-content;
+}
+nav li{
+    width: 80px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    background-image: radial-gradient(#333, #eee);
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px 2px black;
+    align-content: center;
+    text-align: center;
+    list-style: none;
+    transition: 0.5s;
+    display: inline-block;
+    a{
+    font-weight: bold;
+        color:#00dddd;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+}
+nav li:hover{
+    background-image: radial-gradient(#00d, #eee);
+    transform: scale(1.06);
+    a{
+
+    color: #ff0;
+    }
+}
+
+#mainSection{
+    display: inline-block;
+    width: 615px;
+    margin: 15px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 12px;
+    box-shadow: 3px 3px 4px #333;
+    h2, p{
+        margin: 10px;
+    }
+    a{
+        text-decoration: none;
+    }
+    img{
+        opacity: 0.4;
+        margin: 4px;
+        border-radius: 12px;
+        width: 192px;
+        box-shadow: 2px 2px 2px #888;
+        transition: 0.5s;
+    }
+    img:hover{
+        opacity: 1;
+        transform: rotate(5deg);
+    }
+}
+aside{
+    display: inline-block;
+    width: 309px;
+    padding: 10px;
+    margin: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    box-shadow: 3px 3px 4px #333;
+    #progressBar{
+        height: 20px;
+        margin: 15px;
+        background-color: #00dd00;
+        border-radius: 8px;
+        animation: 2s progresso infinite;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    fieldset{
+        border: 1px solid #bbb;
+    }
+
+    label, input{
+        margin: 10px 0px;
+    }
+
+    input[value="invia"]{
+        float: right;
+        background-color: #bbb;
+        font-weight: bold;
+        padding: 5px 15px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 3px 3px 2px #0ff, 6px 6px 2px #000;
+        cursor: pointer;
+    }
+
+    li{
+        margin-top: 10px;
+        width: 60px;
+        height: 55px;
+        display: inline-block;
+        background-image: url(./img/socialNetworks.png);
+        transition: 0.5s;
+    }
+
+    .twitter{
+        background-position: 0 1px;
+    }
+    .facebook{
+        background-position: -60px 1px;
+    }
+    .linkedin{
+        background-position: -120px 1px;
+    }
+    .twitter:hover{
+        background-position: 0 -50px ;
+    }
+    .facebook:hover{
+        background-position: -60px -50px ;
+    }
+    .linkedin:hover{
+        background-position: -120px -50px ;
+    }
+}
+
+@keyframes progresso {
+    0%{width:1px;}
+    100%{width:240px;}
+}
+
 
