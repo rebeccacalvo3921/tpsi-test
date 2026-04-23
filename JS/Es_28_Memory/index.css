@@ -1,0 +1,24 @@
+h1{
+	text-align:center;
+	margin:35px;
+}
+
+#wrapper{
+	width:480px;
+	margin: 0 auto;
+}
+
+.carta {
+	width:88px;
+	height:139px;
+	margin:2px;
+	background-image:url(img/dorso.png);
+	background-size:cover;
+	display:inline-block;
+	cursor:pointer;
+	transition: transform 0.2s;
+}
+
+.carta:hover {
+	transform: scale(1.05);
+}
