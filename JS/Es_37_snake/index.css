@@ -22,16 +22,19 @@ h1{
 .cella{
 	width : 20px;
 	height : 20px;
-	background-color : grey;
+	background-color : #ddd;
+	border: none;
 	color : blue;
 	margin:1px;
 }
 
 .cibo{
 	background-color: #fff;
-	color: blue;
+	color:blue;
 	font-size: 8pt;
 }
+
+
 
 #pulsanti table{
 	margin: 15px auto;
