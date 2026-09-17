@@ -41,18 +41,37 @@ function leggiDataDalTagInput() {
 
     // il .value contiene un formato leggibile, 
     // ma NON consente di fare delle elaborazioni
-    
+
     let data1 = new Date(txtData1.value)
     let data2 = new Date(txtData2.value)
 
-    
-    // 2. serioalizzazione automatica
+
+    // 2. serializzazione automatica
     // => produce una stringa inutilizzabile
     log.innerHTML += data1 + "<br>"
     log.innerHTML += data2 + "<br><br>"
 
     //3. serializzazione con .toISOString
+    log.innerHTML += data1.toISOString() + "<br>"
+    log.innerHTML += data2.toISOString() + "<br><br>"
 
+    //4. serializzazione con toLocaleDateString
+    log.innerHTML += data1.toLocaleDateString() + "<br>"
+    log.innerHTML += data2.toLocaleString() + "<br><br>"
 
-    //4. serializzazione con toLcaleDateString
+    //4. serializzazione con getTime
+    log.innerHTML += data1.getTime() + "<br>"
+    log.innerHTML += data2.getTime() + "<br><br>"
+
+    //6. differenza tra date
+    let diffMillis = data2 - data1
+    log.innerHTML += diffMillis + "<br>"
+    let diffTotalSec = diffMillis / 1000
+    let diffTotalMin = Math.floor(diffTotalSec / 60)
+    let diffHours = Math.floor(diffTotalMin / 60)
+    let diffMin = diffTotalMin %60
+    let diffSec = diffTotalSec % 60
+    log.innerHTML += diffTotalMin + "m " + diffSec + 's <br><br>'
+    log.innerHTML += diffHours + "h  " + diffMin + "m " + diffSec + 's <br><br>'
+
 }
