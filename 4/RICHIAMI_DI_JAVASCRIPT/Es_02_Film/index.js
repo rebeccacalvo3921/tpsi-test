@@ -12,8 +12,12 @@ let films = [
 ];
 
 let tBody = document.getElementsByTagName("tbody")[0]
-
+const modal = new bootstrap.Modal("#modal-count-films")
+const alertLogin = document.getElementById("alert-login")
+const btnLoginClose = document.getElementsByClassName("btn-close")[0]
 addEventListeners()
+
+//avvio
 visualizza()
 
 function addEventListeners(){
@@ -21,6 +25,14 @@ function addEventListeners(){
     btnAdd.addEventListener("click", addNewFilm)
     let btnClear = document.getElementById("btn-clear")
     btnClear.addEventListener("click", puisciLista)
+    let btnReload = document.getElementById("btn-reload")
+    btnReload.addEventListener("click", function(){
+        window.location.reload()
+        window.location.href = "./index.html"
+    })
+    let btnCount = document.getElementById("btn-count")
+    btnCount.addEventListener("click", contaFilm)
+    btnLogin.addEventListener("click", visualizzaLogin)
 }
 
 
@@ -48,6 +60,9 @@ function visualizza(){
     }
 }
 
+function contaFilm(){
+    
+}
 
 
 
@@ -77,11 +92,11 @@ function createRatingInnerHTML(cell, ratingValue) {
 function addNewFilm(){
     let id = films.length + 1
     let title = prompt("Inserire il titolo del nuovo film")
-    let aus = prompt("Il film è uno dei tuoi preferiti?")
+    let aus = prompt(`Il film ${title} è uno dei tuoi preferiti?`)
     let favorite = aus == "si" ? true : false
     let today = (new Date()).toLocaleDateString().replaceAll("/", "-")
 
-    let rating = parseInt(prompt("Quanto valuti il nuovo film nuovo film"))
+    let rating = parseInt(prompt("Quanto valuti il nuovo film da 1 a 5?"))
 
     let film = [] 
     film.push(id) 
@@ -103,4 +118,8 @@ function puisciLista(){
 
 function random(min, max){
     return ((max-min)*Math.floor(Math.random())) + min
+}
+
+function visualizzaLogin(){
+    alert.classList.remove("d-none")
 }
