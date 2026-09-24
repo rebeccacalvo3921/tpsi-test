@@ -8,86 +8,88 @@ let films = [
     [4, "Matrix", false, "01-01-2023", 2],
     [5, "Shrek", false, "21-03-2024", 2],
     [6, "Kill Bill Vol. 1", false, "22-04-2024", 1],
-    [7, "Inception", false, "18-04-2024", 3]
+    [7, "Inception", false, "18-04-2024", 3],
+    [8, "Avatar", true, "18-04-2024", 5]
 ];
 
 let tBody = document.getElementsByTagName("tbody")[0]
+// const btnLoginClose = document.getElementsByClassName("btn-close")[1]
+const btnLoginClose = document.querySelector(".alert .btn-close")
 const modal = new bootstrap.Modal("#modal-count-films")
-const alertLogin = document.getElementById("alert-login")
-const btnLoginClose = document.getElementsByClassName("btn-close")[0]
+const alertLogin = document.getElementById("alert-login");
 addEventListeners()
-
-//avvio
 visualizza()
 
 function addEventListeners(){
-    let btnAdd = document.getElementById("btn-add") //javascript rende disponibile un puntatore dello stesso nome dell'id, quindi questa riga non serve
+    let btnAdd = document.getElementById("btn-add")
     btnAdd.addEventListener("click", addNewFilm)
+
     let btnClear = document.getElementById("btn-clear")
-    btnClear.addEventListener("click", puisciLista)
+    btnClear.addEventListener("click", pulisciLista)
+
     let btnReload = document.getElementById("btn-reload")
     btnReload.addEventListener("click", function(){
+        //entrambe ricaricano la pagina
         window.location.reload()
         window.location.href = "./index.html"
     })
-    let btnCount = document.getElementById("btn-count")
-    btnCount.addEventListener("click", contaFilm)
+
+    let btnConta = document.getElementById("btn-count")
+    btnConta.addEventListener("click", contaFilm)
+
+    let btnLogin = document.getElementById("btn-login")
     btnLogin.addEventListener("click", visualizzaLogin)
+
+    btnLoginClose.addEventListener("click", function(){
+        alertLogin.classList.add("d-none"); // nasconde alert login
+    })
 }
 
-
-
-function visualizza(){
+function visualizza() {
     tBody.innerHTML = ""
     for (const film of films) {
         let row = document.createElement("tr")
         tBody.appendChild(row)
+
         for (let i = 0; i < film.length; i++) {
             const field = film[i]
             let cell = document.createElement("td")
             row.appendChild(cell)
             if (i == 2) {
-                // è il campo "preferito"
-                createPreferitoInnerHTML(cell, field)
-            } else if (i == 4) {
-                // è il campo rating
-                createRatingInnerHTML(cell, field)
-            } else {
-                // altro campo, lo tratto come stringa
-                cell.innerHTML = field
+                // campo preferito
+                createPreferitoInnerHtml(cell, field)
             }
+            else if (i == 4) {
+                //campo rating
+                createRatingInnerHtml(cell, field)
+            }
+            else
+                cell.innerHTML = field
         }
     }
 }
 
-function contaFilm(){
-    
-}
 
-
-
-function createPreferitoInnerHTML(cell, preferitoValue) {
-    let check = document.createElement("input")
+function createPreferitoInnerHtml(cell, field) {
+    let check = document.createElement("input");
     check.type = "checkbox"
     check.disabled = true
-    check.checked = preferitoValue
+    check.checked = field
     cell.appendChild(check)
 }
 
-
-function createRatingInnerHTML(cell, ratingValue) {
+function createRatingInnerHtml(cell, ratingValue) {
     for (let i = 0; i < 5; i++) {
         let star = document.createElement("i")
-        if(i < ratingValue){
+        if (i < ratingValue) {
             star.classList.add("bi", "bi-star-fill")
         }
-        else{
+        else {
             star.classList.add("bi", "bi-star")
         }
         cell.appendChild(star)
     }
 }
-
 
 function addNewFilm(){
     let id = films.length + 1
@@ -110,16 +112,26 @@ function addNewFilm(){
     visualizza()
 }
 
-function puisciLista(){
+
+function pulisciLista(){
     films = []
     visualizza()
 }
 
-
-function random(min, max){
-    return ((max-min)*Math.floor(Math.random())) + min
+function contaFilm(){
+    const span = document.getElementById("span-n-films")
+    span.textContent = films.length
+    modal.show();
 }
 
 function visualizzaLogin(){
-    alert.classList.remove("d-none")
+    alertLogin.classList.remove("d-none"); // visualizza
+    setTimeout(function() {
+    alertLogin.classList.add("d-none");
+    }, 3000);
+    
+}
+
+function random(min, max){
+    return Math.floor(Math.random() * (max- min) + min)
 }
