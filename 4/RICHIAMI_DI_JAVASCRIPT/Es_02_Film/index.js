@@ -9,7 +9,7 @@ let films = [
     [5, "Shrek", false, "21-03-2024", 2],
     [6, "Kill Bill Vol. 1", false, "22-04-2024", 1],
     [7, "Inception", false, "18-04-2024", 3],
-    [8, "Avatar", true, "18-04-2024", 5]
+    [8, "Avatar", true, "18-03-2016", 5]
 ];
 
 let tBody = document.getElementsByTagName("tbody")[0]
