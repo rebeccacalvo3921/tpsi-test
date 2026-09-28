@@ -6,19 +6,25 @@
 const content = document.getElementById("content") //non indispensabile
 const genderElements = document.querySelectorAll(".dropdown-menu li");
 
-const playModal = document.getElementById("play-modal")
+//const playModal = document.getElementById("play-modal")
 const songTitleModal = document.getElementById("song-title-modal")
+const playModal = new bootstrap.Modal("#play-modal")
 
 for (let genderElement of genderElements) {
 	genderElement.addEventListener("click", genderClick)
 }
 
+//icona amici
 const iFriends = document.getElementById("i-friends");
 iFriends.addEventListener("click", showAlert);
+//finestra alert da visualizzare in corrispondenza del click
 const alertFriends = document.getElementById("alert-friends");
 
+//icona search
 const iSearch = document.getElementById("i-search");
 iSearch.addEventListener("click", toggleSearch);
+
+//input type search con classe d-none
 const txtSearch = document.getElementById("txt-search");
 
 loadSongs();
@@ -73,7 +79,8 @@ function loadSongs(genre) {
 			btn.classList.add("btn", "btn-secondary")
 			btn.textContent = "Play"
 			btn.addEventListener("click", function () {
-				//fare modale
+				songTitleModal.textContent = song[1] + " di " + song[2]
+				playModal.show()
 			})
 			col2.append(btn)
 		}
@@ -94,9 +101,17 @@ function genderClick(e) {
 }
 
 function showAlert() {
-
+	alertFriends.classList.remove("d-none");
+	setTimeout(function(){
+		alertFriends.classList.add("d-none")
+	}, 3000)
 }
 
 function toggleSearch() {
-
+	if(txtSearch.classList.contains("d-none")){
+		txtSearch.classList.remove("d-none")
+	}
+	else{
+		txtSearch.classList.add("d-none")
+	}
 }
