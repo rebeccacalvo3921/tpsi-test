@@ -42,6 +42,13 @@ btns[2].addEventListener("click", function () {
 })
 
 
-// GESTIONE PULSANTI
-
-
+btns[3].addEventListener("click", function () {
+    let colore = 50
+    wrapper_li.forEach(function (item, i) {
+        item.style.backgroundColor = ""
+        if (item.matches("li:nth-of-type(odd)")) {
+            item.style.backgroundColor = `rgb(0, ${colore}, 0)`
+            colore += 50
+        }
+    });
+})
