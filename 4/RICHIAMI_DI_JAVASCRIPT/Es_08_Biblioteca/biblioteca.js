@@ -1,5 +1,5 @@
 let biblioteca = [
-    // Id, Titolo, Autore, Anno, Genere, Pagine, CopieVendute, Copertina
+    // Id 1, Titolo 2, Autore 3, Anno 4, Genere 5, Pagine 6, CopieVendute 7, Copertina 8
     [5, "Il Signore degli Anelli", "J. R. R. Tolkien", 1954, "Fantasy", 1178, 150_000_000, "il_signore_degli_anelli.jpg"],
     [6, "Harry Potter e la pietra filosofale", "J. K. Rowling", 1997, "Fantasy", 336, 120_000_000, "harry_potter_pietra_filosofale.jpg"],
     [7, "Lo Hobbit", "J. R. R. Tolkien", 1937, "Fantasy", 310, 100_000_000, "lo_hobbit.jpg"],
