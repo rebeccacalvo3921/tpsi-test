@@ -1,65 +1,154 @@
 'use strict'
 
-//pointers
 const listView = document.getElementById("list-view");
 const divNbooks = listView.querySelector(".nBooks")
 const tBody = listView.querySelector("tbody");
 
 const detailsView = document.getElementById("details-view");
-detailsView.style.display = "none"
+detailsView.style.display="none"
 const details = detailsView.querySelector(".details")
 const pageLabel = detailsView.querySelector("span")
 
-const addView = document.getElementById("add-view");
-addView.style.display = "none"
+const addView = document.getElementById("add-view")
+const container = document.getElementById("container")
+addView.style.display="none"
 const newBook = addView.querySelector(".details")
 
-const headerButtons = document.getElementsByClassName("headerBtn");
-const btnListView = headerButtons[0]
-const btnDetailsView = headerButtons[1]
-const btnAddView = headerButtons[2]
-const btnSave = headerButtons[3]
 
-let id, titolo, categoria, lingua, autori, anno, prezzo //7 variabili globali
+const headerBtns = document.getElementsByClassName("headerBtn")
+const listViewBtn = headerBtns[0]
+const detailsViewBtn = headerBtns[1]
+const addViewBtn = headerBtns[2]
+const saveBtn = headerBtns[3]
 
-//avvio del codice
-btnListView.classList.add("active")
+let id, titolo, categoria, lingua, autori, anno, prezzo
+let detailsIndex = 0
+
+//avvio
+listViewBtn.classList.add("active")
+
 let bookstore = localStorage.getItem("bookstore")
-if (!bookstore) {
+
+if(!bookstore)
+{
     bookstore = datiIniziali
 }
-console.log(bookstore)
 
-//parsing
-const parser = new DOMParser
+const parser = new DOMParser();
+
 const xmlDoc = parser.parseFromString(bookstore, "text/xml")
 
-//accediamo alla radice e prendiamo mxlroot
+
 const xmlRoot = xmlDoc.firstElementChild
-loadBooks()
+LoadBooks()
+
+detailsViewBtn.addEventListener("click", vistaDettagli)
+listViewBtn.addEventListener("click", vistaLista)
+addViewBtn.addEventListener("click", vistaAggiungi)
 
 
-function loadBooks(params) {
+function LoadBooks(){
     tBody.innerHTML = ""
-    //scorriamo i libri nel bookstore con un forof
-    for (const book of xmlRoot.children) { //si scorrono tutti i children di xmlRoot
+    for (const book of xmlRoot.children) {
         readFields(book)
-    }
+        let td
+        let tr = document.createElement("tr")
+        tBody.append(tr)
 
+        td = document.createElement("td")
+        td.textContent = id
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = titolo
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = categoria
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = lingua
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = autori
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = anno
+        tr.append(td)
+
+        td = document.createElement("td")
+        td.textContent = prezzo
+        tr.append(td)
+
+        td = document.createElement("td")
+        let btn = document.createElement("button")
+        btn.textContent = "Delete"
+        td.append(btn)
+        tr.append(td)
+    }
 }
 
+function loadDetails(){
+    details.innerHTML = ""
+    if(xmlRoot.children.length > 0){
+        const book = xmlRoot.children[detailsIndex]
+        readFields(book)
+        createDetailLine("Id", id)
+        createDetailLine("Titolo", titolo)
+        createDetailLine("Categoria", categoria)
+        createDetailLine("Lingua", lingua)
+        createDetailLine("Autori", autori)
+        createDetailLine("Anno", anno)
+        createDetailLine("Prezzo", prezzo)
+    }
+}
 
-function readFields(book) {
+function createDetailLine(key, value){
+    let lbl = document.createElement("label")
+    lbl.textContent = key
+}
+
+function readFields(book){
     id = book.getElementsByTagName("id")[0].textContent
     titolo = book.querySelector("title").textContent
-    categoria = book.getAttribute("category") //in xml di possono solo usare atributi statici
-    // NO -> categoria = book.category -> questo è per gli attributi dinamici
+    categoria = book.getAttribute("category")
     lingua = book.querySelector("title").getAttribute("lang")
+    autori = ""
     for (const author of book.getElementsByTagName("author")) {
-        autori += author.textContent + " - "
+        autori += author.textContent + "-"
     }
     autori = autori.substring(0, autori.length - 3)
-    anno = book.getElementsByTagName("year")[0].textContent
-    prezzo = book.querySelector("price").textContent
-    console.log(id, titolo, categoria, lingua, autori, anno, prezzo)
+    anno = book.getElementsByTagName("year")[0]?.textContent || ""
+    console.log(anno)
+    prezzo = book.querySelector("price")?.textContent
+}
+
+function vistaDettagli(){
+    resetDivs()
+    detailsView.style.display = ""
+    detailsViewBtn.classList.add("active")
+}
+
+function vistaLista(){
+    resetDivs()
+    listView.style.display = ""
+    listViewBtn.classList.add("active")
+}
+
+function vistaAggiungi(){
+    resetDivs()
+    addView.style.display = ""
+    addViewBtn.classList.add("active")
+}
+
+function resetDivs(){
+    for (const div of container.children) {
+        div.style.display = "none"
+    }
+    for (const btn of headerBtns) {
+        btn.classList.remove("active")
+    }
 }
