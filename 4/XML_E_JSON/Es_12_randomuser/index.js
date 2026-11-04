@@ -16,11 +16,13 @@ const modal = document.getElementById('addNewModal');
 // Events
 opts[0].addEventListener("click", displayData)
 opts[1].addEventListener("click", displayData)
-
-navBtns.forEach(function(button) {
-	button.addEventListener("click", naviga)
+navBtns.forEach(function (button) {
+    button.addEventListener("click", naviga)
 });
 utilityBtns[0].addEventListener("click", eliminaPerNazione)
+utilityBtns[1].addEventListener("click", ordina)
+utilityBtns[2].addEventListener("click", salva)
+utilityBtns[3].addEventListener("click", addNew)
 
 // dati filtrati
 let filteredData
@@ -40,10 +42,10 @@ function loadData() {
 function displayData() {
     tbody.innerHTML = ""
 
-	// const gender = opts.querySelector(":checked").value - NOK --> è sbagliata perché viene applicata una collezione
-	const gender = optWrapper.querySelector(":checked").value
+    // const gender = opts.querySelector(":checked").value - NOK --> è sbagliata perché viene applicata una collezione
+    const gender = optWrapper.querySelector(":checked").value
     filteredData = getFilteredData(gender)
-    
+
     filteredData.forEach(function (person, index) { //--> equivalente del forof di for(let person of people)
         let tr = document.createElement("tr");
         tbody.append(tr);
@@ -74,9 +76,9 @@ function displayData() {
 
         td = document.createElement("td")
         td.classList.add("icon", "trash")
-		td.addEventListener("click", function(){
-			removePerson(person)
-		})
+        td.addEventListener("click", function () {
+            removePerson(person)
+        })
         tr.append(td)
     });
 
@@ -85,7 +87,7 @@ function displayData() {
 
 function getFilteredData(gender) {
     let result = []
-    people.forEach(function(person) {
+    people.forEach(function (person) {
         if (person.gender == gender) {
             result.push(person)
         }
@@ -138,15 +140,40 @@ function naviga() {
     showDetails(filteredData[currentIndex - 1])
 }
 
-function removePerson(person){
-	let index = people.indexOf(person)
-	people.splice(index, 1) //per eliminare un record
+function removePerson(person) {
+    let index = people.indexOf(person)
+    people.splice(index, 1) //per eliminare un record
     alert(getName(person.name) + " rimosso correttamente")
     console.table(people)
-	displayData()
+    displayData()
 }
 
-function eliminaPerNazione(){
-    const nazione = prompt("Inserire una nazione")
-    
+function eliminaPerNazione() {
+    const nazione = prompt("Inserire una nazione").toUpperCase()
+    let length1 = people.length;
+    const ausPeople = people.filter(function (person) {
+        return person.nat != nazione;
+    })
+    let length2 = people.length
+    if (length1 == length2)
+        alert("Non ci sono persone appartenenti alla nazione " + nazione)
+    else {
+        alert(`Eliminate correttamente ${length1 - length2} persone`);
+        displayData()
+        if (length2 == 0) {
+            utilityBtns[0].disabled = true;
+        }
+    }
+}
+
+function ordina() {
+
+}
+
+function salva() {
+
+}
+
+function addNew() {
+
 }
