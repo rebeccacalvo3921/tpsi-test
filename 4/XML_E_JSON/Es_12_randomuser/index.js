@@ -12,31 +12,29 @@ const utilityBtns = document.querySelectorAll("#utilityButtons input")
 // addNew
 const modal = document.getElementById('addNewModal');
 
-
 // Events
 opts[0].addEventListener("click", displayData)
 opts[1].addEventListener("click", displayData)
-
-navBtns.forEach(function(button){
-    button.addEventListener("click", naviga)
+navBtns.forEach(function(btn){
+    btn.addEventListener("click", naviga)
 })
 
-utilityBtns[0].addEventListener("click", eliminaPernazione)
+utilityBtns[0].addEventListener("click", eliminaPerNazione)
 utilityBtns[1].addEventListener("click", ordina)
 utilityBtns[2].addEventListener("click", salva)
-utilityBtns[3].addEventListener("click", function(){ modal.showModal() })
+utilityBtns[3].addEventListener("click", function(){
+    modal.showModal()
+})
 btnSalva.addEventListener("click", addNew)
 
-//data filtrati
-let fileredData
+
+//dati filtrati
+let filteredData
 let currentIndex = 0
 
 // Avvio
-const people = loadData();
+let people = loadData(); //people è un vettore enumerativo di JSON (si usa JSON.parse perchè è un elemento valido)
 displayData()
-
-
-/* - - - - - funtion - - - - - */
 
 function loadData(){
     let peopleString = localStorage.getItem("people");
@@ -50,67 +48,62 @@ function displayData() {
     tbody.innerHTML=""
    
     // const gender = opts.querySelector(":checked").value - NOK
-    const gender = optWrapper.querySelector(":checked").value
-    console.log(people, gender)
-
+    const gender = document.querySelector(":checked").value
     getFilteredData(gender)
-
-    fileredData.forEach(function (person, index){
-            const tr = document.createElement("tr")
+    filteredData.forEach(function(person, i){
+            let tr = document.createElement("tr")
             tbody.append(tr)
 
-            let td = document.createElement("td")
+            let td = document.createElement("td") //NOME
             td.textContent = getName(person.name)
             tr.append(td)
 
-            td = document.createElement("td")
+            td = document.createElement("td") //CITTA
             td.textContent = person.location.city
             tr.append(td)
 
-            td = document.createElement("td")
-            td.textContent =person.location.state
+            td = document.createElement("td") //STATO
+            td.textContent = person.location.state
             tr.append(td)
 
-            td = document.createElement("td")
-            td.textContent =person.nat
+            td = document.createElement("td") //NAZIONALITA'
+            td.textContent = person.nat
             tr.append(td)
 
             td = document.createElement("td")
             td.classList.add("icon", "lens")
             td.addEventListener("click", function(){
-                currentIndex = index
-                showDetail(person)
+                currentIndex = i
+                showDetails(person, currentIndex)
             })
             tr.append(td)
 
             td = document.createElement("td")
             td.classList.add("icon", "trash")
             td.addEventListener("click", function(){
-                removePerson(person)
+                deletePerson(person)
             })
             tr.append(td)
+       
     });
+
+    utilityBtns[0].disabled = tbody.innerHTML == ""
     detailsContainer.style.display = "none"
 }
 
 function getName(personName){
-    return `${personName.first} ${personName.last}`
+    return personName.first + " " + personName.last
 }
 
-function getNameForSort(personName){
-    return `${personName.last} ${personName.first}`
-}
-
-function showDetail(person){
+function showDetails(person, currentIndex){
     detailsContainer.style.display = ""
     details.innerHTML = ""
 
-    let p = document.createElement("p")
+    let p  = document.createElement("p")
     p.textContent = person.email
     details.append(p)
 
     let img = document.createElement("img")
-    img.style.maxWidth = "150px"
     img.src = person.picture.large
     details.append(img)
 
@@ -118,112 +111,107 @@ function showDetail(person){
     p.textContent = person.cell
     details.append(p)
 
-    navLabel.textContent = `${currentIndex + 1}/${fileredData.length}`
+    navLabel.textContent = `${currentIndex + 1}/${filteredData.length}`
 }
 
-
 function getFilteredData(gender){
-    fileredData = []
+    filteredData = []
     people.forEach(function(person){
-        if(person.gender == gender){
-            fileredData.push(person)
-        }
-    })
-    return fileredData
+        if(person.gender == gender)
+            filteredData.push(person)
+    });
 }
 
 function naviga(){
     switch(this.value){
         case "Primo":
             currentIndex = 0
-            break;
+            break
         case "Indietro":
-            if(currentIndex > 0){
+            if(currentIndex > 0)
                 currentIndex--
-            }
-            break;
+            break
         case "Avanti":
-            if(currentIndex < fileredData.length - 1){
+            if(currentIndex < filteredData.length - 1)
                 currentIndex++
-            }
-            break;
+            break
         case "Ultimo":
-            currentIndex = 19
-            break;
-        default:
-            break;
+            currentIndex = filteredData.length - 1
+            break
     }
-    showDetail(fileredData[currentIndex])
-
+    showDetails(filteredData[currentIndex])
 }
 
-function removePerson(person){
+function deletePerson(person){
     let index = people.indexOf(person)
     people.splice(index, 1)
     alert(getName(person.name) + " rimosso correttamente")
     displayData()
 }
 
-function eliminaPernazione(){
-    const nazione = prompt("inesire una nazione")
+function eliminaPerNazione(){
+    const nazione = prompt("inserire una nazione:").toUpperCase()
+    let length1 = people.length //length di people prima del filtro
+    people = people.filter(function(person){
+        return person.nat != nazione
+    })
+    let length2 = people.length
+    if(length2 == length1)
+        alert("Non ci sono persone appartenenti alla nazione " + nazione)
+    else{
+        alert(`Eliminate correttamente ${length1 - length2} persone`)
+        displayData();
+        utilityBtns[0].disabled = tbody.innerHTML == ""
+    }
 }
 
 let a_z = true
 function ordina(){
-    people.sort(function (item1, item2){
-        let n1 = getNameForSort(item1.name)
-        let n2 = getNameForSort(item2.name)
-        return a_z ? n1.localeCompare(n2) : n2.localeCompare(n1)
+    people.sort(function(person1, person2){
+        let name1 = getNameReversed(person1.name).toUpperCase()
+        let name2 = getNameReversed(person2.name).toUpperCase()
+        return a_z ? name1.localeCompare(name2) : name2.localeCompare(name1) //ritorna -1 se NON bisogna scambiare, 1 se BISOGNA scambiare, 0 NON bisogna scambiare
     })
     displayData()
     a_z = !a_z
 }
 
+function getNameReversed(personName){
+    return personName.last + " " + personName.first
+}
+
 function salva(){
     let data = JSON.stringify(people)
-    //localStorage.setItem("people", data)
-    //localStorage["people"] = data        
-    localStorage.people = data          // sono la stessa cosa ma le prime due sono parametrizzabili
-    alert("Dati salvati correttamente")
+    localStorage.setItem("people", data)
+    //localStorage["people"] = data
+    //localeStorage.people = data
+    alert("dati salvati correttamente")
 }
 
 function addNew(){
-    //controllo validità dati
-    let inputData = Array.from(modal.getElementsByTagName("input"))
-    /*inputData.forEach(function (input){   //foreach non può essere interrotto
-        if(input.value.trim() == ""){
-            alert("dati incompleti")
-            badData = true
-            return
-        }
-    });*/
-    for (const input of inputData) {
-        if(input.value.trim() == ""){
-            alert("dati incompleti")
+    let data = modal.getElementsByTagName("input")
+    for(let txt of data){
+        if(txt.value.trim() == ""){
+            alert("Devi riempire tutti i campi!")
             return
         }
     }
-    if(txtGender.value != "male" && txtGender.value != "female"){
-        alert("controlla il genere")
-        return
-    }
 
-
-    // salvattaggio
+    // {} per JSON [] per vettori
     let person = {
-         "gender": txtGender.value,
+        "gender": txtGender.value.trim(),
          "name":{
-            "title":txtGender.value == "male"? "mr" : "miss",
-            "first":txtFirst.value,
-            "last":txtLast.value
+            "title": txtGender.value.trim().toLower() == "male" ? "mr" : "miss",
+            "first": txtFirst.value.trim(),
+            "last": txtList.value.trim()
          },
          "location":{
-            "street":"9281 southampton street",
-            "city": txtCity.value,
-            "state": txtState.value,
+            "street":"",
+            "city": txtCity.value.trim(),
+            "state":txtState.value.trim(),
             "postcode":0
          },
-         "email": txtEmail.value,
+         "email": txtEmail.value.trim(),
          "login":{
             "username":"",
             "password":"",
@@ -234,7 +222,7 @@ function addNew(){
          },
          "dob":"",
          "registered":"",
-         "phone": txtPhone.value,
+         "phone": txtPhone.value.trim(),
          "cell":"",
          "id":{
             "name":"",
@@ -245,17 +233,10 @@ function addNew(){
             "medium":"",
             "thumbnail":""
          },
-         "nat":txtNat.value
+         "nat":txtNat.value.trim()
     }
-
     people.push(person)
-
     salva()
     displayData()
-
-    //pulisco i dati
-    for (const input of inputData) {
-        input.value = ""
-    }
 }
 
