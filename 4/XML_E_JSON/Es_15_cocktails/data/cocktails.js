@@ -1,4 +1,4 @@
-let cocktails = `{
+let cocktails = String.raw`{
    "drinks":[
       {
          "idDrink":"17005",
