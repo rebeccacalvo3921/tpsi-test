@@ -21,9 +21,9 @@ function loadData() {
     if (!aus) {
         aus = data;
     }
-
     scuderie = JSON.parse(aus);
 }
+
 function caricaListBox() {
     const keys = Object.keys(scuderie);
     keys.sort();

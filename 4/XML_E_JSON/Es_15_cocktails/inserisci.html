@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Insert</title>
     <link rel="stylesheet" href="./inserisci.css">
-    <script type="application/javascript" src="./DB/cocktails.js"></script>
-    <script type="application/javascript" src="./DB/ingredients.js"></script>
-    <script type="application/javascript" src="./inserisci.js"></script>
+    <script type="application/javascript" src="./data/cocktails.js"></script>
+    <script type="application/javascript" src="./data/ingredients.js"></script>
+    <script type="application/javascript" defer src="./inserisci.js"></script>
 </head>
 <body>
     <h1>Inserisci un nuovo Cocktail</h1>
-	
 
     <label for="txtId"><b>ID:</b></label>  
-	<input type="text" id="txtId">
-	<br>
-	
+    <input type="text" id="txtId">
+    <br>
+    
     <label for="txtName"><b>Name:</b></label> 
-	<input type="text" id="txtName">
-	<br>
-	
+    <input type="text" id="txtName">
+    <br>
+    
     <label for="lstIngredients"><b>Main Ingredient:</b></label> 
-	<select id="lstIngredients"> </select>
-	<br>
-	
+    <select id="lstIngredients"> </select>
+    <br>
+    
     <label for="optAlcoholic"><b>Alcoholic:</b></label> 
-	<input type="radio" id="optAlcoholic" value="Alcoholic" checked>
+    <input type="radio" name="optAlc" id="optAlcoholic" value="Alcoholic" checked>
     <label for="optNotAlcoholic"><b>Not Alcoholic:</b></label> 
-	<input type="radio" id="optNotAlcoholic" value="NotAlcoholic"d>
-	<br>
-	
-	
+    <input type="radio" name="optAlc" id="optNotAlcoholic" value="NotAlcoholic">
+    <br>
+    
     <button id="btnSalva"><b>Salva</b></button>
     <button id="btnAnnulla"><b>Annulla</b></button>
 </body>
